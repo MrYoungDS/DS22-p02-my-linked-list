@@ -11,9 +11,10 @@ public class MyLinkedListTester
 
         // small test
         al1.addFirst(65);
-        al1.addFirst(72);
+        al1.addFirst(72); // 72, 65
         al1.addLast(11);
         al1.addLast(32); // 72, 65, 11, 32
+        //System.out.println(printList(al1));
 
         tests++;
         if (al1.size() != 4)
@@ -30,56 +31,71 @@ public class MyLinkedListTester
         }
 
         tests++;
-        if (al1.get(1) != 72)
+        if (al1.get(0) != 72)
         {
-            System.out.println("get test failed");
+            System.out.println("get test 1 failed");
             fails++;
         }
 
         tests++;
-        al1.set(2, 89); // 65, 72, 89, 32
-        if (al1.get(2) != 89)
+        if (al1.get(3) != 32)
+        {
+            System.out.println("get test 2 failed");
+            fails++;
+        }
+
+        tests++;
+        al1.set(2, 21); // 72, 65, 21, 32
+        if (al1.get(2) != 21)
         {
             System.out.println("set/get test failed");
             fails++;
         }
 
-        al1.add(1, 41);
-        al1.add(5, 93); // 65, 41, 72, 89, 32, 93
+        al1.add(1, 39);
+        al1.add(4, 92);
+        al1.add(0, 40);
+        al1.add(7, 81); // 40, 72, 39, 65, 21, 92, 32, 81
         //System.out.println(printList(al1));
         tests++;
-        if (al1.size() != 6)
+        if (al1.size() != 8)
         {
             System.out.println("add test 1 failed");
             fails++;
         }
         tests++;
-        if (al1.get(2) != 72)
+        if (al1.get(1) != 72)
         {
             System.out.println("add test 2 failed");
             fails++;
         }
         tests++;
-        if (al1.get(5) != 93)
+        if (al1.get(0) != 40)
         {
             System.out.println("add test 3 failed");
             fails++;
         }
+        tests++;
+        if (al1.get(7) != 81)
+        {
+            System.out.println("add test 4 failed");
+            fails++;
+        }
 
         tests++;
-        if (al1.remove(4) != 32) // 65, 41, 72, 89, 93
+        if (al1.remove(4) != 21) // 40, 72, 39, 65, 92, 32, 81
         {
             System.out.println("remove test 1 failed");
             fails++;
         }
         tests++;
-        if (al1.size() != 5)
+        if (al1.size() != 7)
         {
             System.out.println("remove test 1 failed");
             fails++;
         }
         tests++;
-        if (al1.get(4) != 93)
+        if (al1.get(4) != 92)
         {
             System.out.println("remove test 1 failed");
             fails++;
